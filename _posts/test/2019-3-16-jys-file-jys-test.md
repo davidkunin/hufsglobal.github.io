@@ -48,7 +48,8 @@ cookiecutter https://github.com/pydanny/cookiecutter-django // 쿠키커터 프�
 
 {% highlight html %}
 project_name [My Awesome Project]: test_project // 프로젝트 이름 생성
-project_slug [test_project]: // 해당 이름으로 폴더를 생성. default로 프로젝트의 이름과 같다.
+project_slug [test_project]: // 해당 이름으로 폴더를 생성. 
+default로 프로젝트의 이름과 같다.
 description [Behold My Awesome Project!]: test for studying of jango_cuckicutter // 현재 프로젝트에 대한 간단한 설명
 author_name [Daniel Roy Greenfeld]: jangyoonseo// 만든이
 domain_name [example.com]: test_project.com // 도메인 이름
