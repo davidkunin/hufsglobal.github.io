@@ -244,9 +244,9 @@ def home(request):
 {%endfor%}
 {% endhighlight %}
  
- ## 네이버 뉴스에는 겹치는 내용의 뉴스가 없기 때문에, 단어를 세는것은 의미가 없다. 하지만, 다른 포털사이트나, 게시판에서 활용할 수 있음.
+# PPT참고
 
-
+[예비세션2.pdf](https://github.com/seungyuns/newbitonproject/files/2973893/sub_session2.pdf)
 
 
 
