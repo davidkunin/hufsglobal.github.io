@@ -230,7 +230,13 @@ def home(request):
 
 <h1>실시간 뉴스</h1>
 {{show}}
-asdasdasdasd
+
+{%for title in show%}
+
+기사 제목 : {{title}}<br><br>
+
+{%endfor%} 
+
 <br>
 {% for word, number in num_c %}
     {{word}} : {{number}} 개
