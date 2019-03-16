@@ -1,15 +1,12 @@
 ---
-layout: post      # 수정 NO 
-title: 예비세션_승윤 # 글 제목으로 수정
-category: session # 본인에게 맞는 카테고리명을 적으세요
---- 
+layout: post
+title: sub_session2. 파이썬으로 네이버 뉴스 크롤링 하기.
+category: session
+---
+예비 세션 2 - prod. 승윤
 
- 예비 세션: 파이썬으로 네이버 뉴스 크롤링 하기.
- 
- # 네이버 실시간 뉴스 크롤링 및 단어 세어보기.
- 
+# 네이버 실시간 뉴스 크롤링 
  ---
-<br>
 
 
 &nbsp;**1. 크롤링이란?.**
