@@ -1,7 +1,7 @@
 ---
 layout: post
 title: sub_session2. 파이썬으로 네이버 뉴스 크롤링 하기.
-category: session
+category: test
 ---
 예비 세션 2 - prod. 승윤
 
