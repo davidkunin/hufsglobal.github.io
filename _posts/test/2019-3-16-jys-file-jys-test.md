@@ -127,3 +127,6 @@ DATABASES = {
 {% highlight html %}
 python manage.py runserver
 {% endhighlight %}
+
+#PostgreSQL 설치 ppt
+https://github.com/hufslion/for-pic-url/files/2970737/PostgreSQLinstall.pdf
