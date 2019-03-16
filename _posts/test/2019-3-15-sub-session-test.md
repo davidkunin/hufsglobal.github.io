@@ -226,7 +226,7 @@ def home(request):
 {% endhighlight %}
  
 * 단어 갯수 출력하기.
-{% highlight python %}
+{% highlight html %}
 
 <h1>실시간 뉴스</h1>
 {{show}}
