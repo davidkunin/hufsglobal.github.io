@@ -38,7 +38,8 @@ pip install django // djnago 설치
 django 설치까지 완료 됬으면 쿠키커터 패키지를 설치하고 쿠키커터로 프록젝트를 생성해봅시다
 {% highlight html %}
 pip install cookiecutter // 쿠키커터 설치
-cookiecutter https://github.com/pydanny/cookiecutter-django // 쿠키커터 프로젝트 생성 
+cookiecutter https://github.com/pydanny/cookiecutter-django 
+// 쿠키커터 프로젝트 생성 
 {% endhighlight %}
 
 이렇게 명령어를 친후에는 앞에 말한 설정 스크립트가 뜰겁니다 이제 스크립트에 각자 자신이 원하는 대로 설정하면 됩니다 
@@ -46,13 +47,15 @@ cookiecutter https://github.com/pydanny/cookiecutter-django // 쿠키커터 프�
 
 {% highlight html %}
 project_name [My Awesome Project]: test_project // 프로젝트 이름 생성
-project_slug [test_project]: // 해당 이름으로 폴더를 생성. default로 프로젝트의 이름과 같다.
-description [Behold My Awesome Project!]: test for studying of jango_cuckicutter // 현재 프로젝트에 대한 간단한 설명
+project_slug [test_project]: // 해당 이름으로 폴더를 생성. 
+default로 프로젝트의 이름과 같다.
+description [Behold My Awesome Project!]: test for cookiecutter // 현재 프로젝트에 대한 간단한 설명
 author_name [Daniel Roy Greenfeld]: jangyoonseo// 만든이
 domain_name [example.com]: test_project.com // 도메인 이름
 email [jo@example.com]: joe1220@daum.net // 이메일
 version [0.1.0]:
-Select open_source_license:  // 어떤 오픈소스 라이센스를 쓸지 선택.default로 MIT가 선택되어 있다.
+Select open_source_license:  // 어떤 오픈소스 라이센스를 쓸지 선택
+.default로 MIT가 선택되어 있다.
 1 - MIT
 2 - BSD
 3 - GPLv3
