@@ -130,5 +130,5 @@ DATABASES = {
 python manage.py runserver
 {% endhighlight %}
 
-#ostgreSQL설치관련ppt
-![사진설명](https://github.com/hufslion/for-pic-url/files/2970737/PostgreSQLinstall.pdf)
+#postgreSQL설치관련ppt
+https://github.com/hufslion/for-pic-url/files/2970737/PostgreSQLinstall.pdf
