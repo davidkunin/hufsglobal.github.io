@@ -226,23 +226,17 @@ def home(request):
 {% endhighlight %}
  
 * 단어 갯수 출력하기.
-```python
+{% highlight html %}
 
 <h1>실시간 뉴스</h1>
 {{show}}
-
-{%for title in show%}
-
-기사 제목 : {{title}}<br><br>
-
-{%endfor%} 
-
+asdasdasdasd
 <br>
 {% for word, number in num_c %}
     {{word}} : {{number}} 개
 <br>
 {%endfor%}
-```
+{% endhighlight %}
  
  ## 네이버 뉴스에는 겹치는 내용의 뉴스가 없기 때문에, 단어를 세는것은 의미가 없다. 하지만, 다른 포털사이트나, 게시판에서 활용할 수 있음.
 
