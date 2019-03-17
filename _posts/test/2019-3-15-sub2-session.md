@@ -5,7 +5,7 @@ category: test
 ---
 예비 세션 2 - prod. 승윤
 
-# 인공지능(마르코프 체인(Markov Chain) 알고리즘)으로 작곡하기. 
+# 인공지능(마르코프 체인(Markov Chain))으로 작곡하기. 
 ---
 
 ## 마르코프 체인(Markov Chain)이란?
