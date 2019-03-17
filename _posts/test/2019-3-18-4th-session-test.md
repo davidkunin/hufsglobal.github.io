@@ -139,10 +139,10 @@ ___
 2. 내용물 전체를 복사해서 만들어둔 app에 static이라는 폴더를 만들고 그 안에 붙여 넣는다.
 3. 내용물 중 index.html를 잘라내서 App의 templates폴더에 app의 이름으로 폴더를 하나 더 만들고, 그 안에 이 index.html을 넣는다.
 4. css, javascript의 경로를 연결해준다. 
-    1. index.html로 가서 최상단에 {%raw%}{% load staticfiles %} {%endraw%}를 적어준다.
+    1. index.html로 가서 최상단에 {% load staticfiles %} 를 적어준다.
     * staticfile(개발자가 넣어둔 img들)를 불러와서 사용하겠다라고 알려주는 의미다.
-    2. <link href='{% static "css/agency.min.css" %}' rel="styleshee"> 이런 형태로 href(하이퍼링크), 즉 경로를 다시 설정해준다.
-    3. src='{% static “css/agency.min.css" %}'
+    2. <link href='{%raw%}{% static "css/agency.min.css" %}{%endraw%}' rel="styleshee"> 이런 형태로 href(하이퍼링크), 즉 경로를 다시 설정해준다.
+    3. src='{%raw%}{% static “css/agency.min.css" %}{%endraw%}'
  이처럼 href가 아닌 src(source, 소스) 또한 수정해주자.
  5. 서버를 돌려보고 제대로 나오는지 확인한다.
 
