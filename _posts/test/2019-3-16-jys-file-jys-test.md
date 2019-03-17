@@ -116,8 +116,7 @@ local환경에 필요한 패키지들을 가상환경 안에 설치
 {% endhighlight %}
 
 그 다음 설정을 완료하기 위해서 먼저 참조된 ppt를 통해서 posrgresql 설치를 완료해주세요!
-이제 우리의 프로젝트에 설치한 postgresql DB를 연결해줍시다! 
-
+이제 우리의 프로젝트에 설치한 postgresql DB를 연결해줍시다!  
 config 폴더/ settings 폴더/ base.py 에 DATABASES부분의 41번줄에 이 코드가 보일텐데 이제 저 default 부분를 설정해주면 됩니다 
 
 {% highlight html %}
