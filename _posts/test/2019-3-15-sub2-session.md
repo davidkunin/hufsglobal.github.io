@@ -368,5 +368,5 @@ make_midi(midi_path='midi/random_mix.mid', notes=random_song)
 
 # PPT참고
 
-[예비세션2.pdf](https://github.com/seungyuns/newbitonproject/files/2973893/sub_session2.pdf)
+[인공지능으로 작곡하기.pdf](https://github.com/seungyuns/newbitonproject/files/2975690/sub_session2_AI_composition.pdf)
 
