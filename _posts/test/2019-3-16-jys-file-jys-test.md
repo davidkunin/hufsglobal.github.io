@@ -51,7 +51,7 @@ cookiecutter https://github.com/pydanny/cookiecutter-django
 project_name [My Awesome Project]: test_project // 프로젝트 이름 생성
 project_slug [test_project]: // 해당 이름으로 폴더를 생성. 
 default로 프로젝트의 이름과 같다.
-description [Behold My Awesome Project!]: test for studying of jango_cuckicutter 
+description [Behold My Awesome Project!]: test for cookiecutter 
 // 현재 프로젝트에 대한 간단한 설명
 author_name [Daniel Roy Greenfeld]: jangyoonseo// 만든이
 domain_name [example.com]: test_project.com // 도메인 이름
@@ -71,8 +71,9 @@ windows [n]: // windows에서 개발을 하는지 물어본다. yes로 설정해
 use_pycharm [n]: pycharm이란 파이썬 IDE를 사용하냐고 묻는데, 
                 사용하지 않으니 default인 n로 넘어가겠다.
 use_docker [n]: docker 사용여부를 묻는다.
-Select postgresql_version: // 장고는 default로 postgresql이란 데이터베이스를 사용한다.
-                               어떤 postgresql의 버전을 사용중인지 묻는다.
+Select postgresql_version: // 장고는 default로 postgresql이란 
+                              데이터베이스를 사용한다.
+                              어떤 postgresql의 버전을 사용중인지 묻는다.
 1 - 10.4
 2 - 10.3
 3 - 10.2
@@ -120,7 +121,8 @@ config 폴더/ settings 폴더/ base.py 에 DATABASES부분의 41번줄에 이 �
 
 {% highlight html %}
 DATABASES = {
-'default': env.db('DATABASE_URL', default='postgres:///testsqlite'),
+'default': env.db('DATABASE_URL', 
+default='postgres:///testsqlite'),
 }
 {% endhighlight %}
 
@@ -136,5 +138,5 @@ DATABASES = {
 python manage.py runserver
 {% endhighlight %}
 
-##PostgreSQL 설치 ppt
-https://github.com/hufslion/for-pic-url/files/2970737/PostgreSQLinstall.pdf
+## PostgreSQL 설치 ppt
+<https://github.com/hufslion/for-pic-url/files/2970737/PostgreSQLinstall.pdf>
