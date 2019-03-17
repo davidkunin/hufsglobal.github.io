@@ -33,7 +33,7 @@ category: test
 * 쉽게 말해서 HTML을 꾸며 주며 주는 역할
 * HTML태그에 속성을 주어 꾸며주거나 태그에 CLASS 혹은 ID를 주어 꾸밀 수 있음
 
-![ex_screenshot](./ex/1.png)
+![ex_screenshot](../images/404.jpg)
 
 
 ### CSS로 할 수 있는 것은?
