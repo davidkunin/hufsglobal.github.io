@@ -231,5 +231,5 @@ def home(request):
 
 [예비세션2.pdf](https://github.com/seungyuns/newbitonproject/files/2973893/sub_session2.pdf)
 
-
+.
 
