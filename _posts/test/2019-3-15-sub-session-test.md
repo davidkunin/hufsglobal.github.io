@@ -225,24 +225,7 @@ def home(request):
     return render(request, 'home.html', {'show':title, 'num_c':d.items()})
 {% endhighlight %}
  
-* 단어 갯수 출력하기.
-{% highlight html %}
 
-<h1>실시간 뉴스</h1>
-{{show}}
-
-{%for title in show%}
-
-기사 제목 : {{title}}<br><br>
-
-{%endfor%} 
-
-<br>
-{% for word, number in num_c %}
-    {{word}} : {{number}} 개
-<br>
-{%endfor%}
-{% endhighlight %}
  
 # PPT참고
 
