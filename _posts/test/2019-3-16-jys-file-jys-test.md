@@ -73,7 +73,7 @@ use_pycharm [n]: pycharm이란 파이썬 IDE를 사용하냐고 묻는데,
 use_docker [n]: docker 사용여부를 묻는다.
 Select postgresql_version: // 장고는 default로 postgresql이란 
                               데이터베이스를 사용한다.
-                              어떤 postgresql의 버전을 사용중인지 묻는다.
+                            어떤 postgresql의 버전을 사용중인지 묻는다.
 1 - 10.4
 2 - 10.3
 3 - 10.2
