@@ -9,7 +9,7 @@ Cookiecutter
 
 세션 sub - prod. 장윤서
 
-### cookiecutter 란???
+### cookiecutter 란??
 
 cookiecutter는 Django 안에 있는 여러 package중에 하나로 본래 프로젝트 생성시 추가적으로 만들어야 되는 파일들이나 설정들을 한번에 처리해주는
 역할을 합니다
