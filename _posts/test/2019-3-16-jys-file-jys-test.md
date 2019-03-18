@@ -48,7 +48,8 @@ cookiecutter https://github.com/pydanny/cookiecutter-django
 (만약 아직 스크립트 내용이 너무 생소하다면 프로젝트 이름 작성 후부턴 쭉 엔터만 쳐도 됩니다) 
 
 {% highlight html %}
-project_name [My Awesome Project]: test_project // 프로젝트 이름 생성
+project_name [My Awesome Project]: test_project // 프로젝트 
+                                                  이름 생성
 project_slug [test_project]: // 해당 이름으로 폴더를 생성. 
 default로 프로젝트의 이름과 같다.
 description [Behold My Awesome Project!]: test for cookiecutter 
