@@ -111,7 +111,7 @@ Firstproject > [settings.py](http://settings.py) 파일을 켜주시면 됩니�
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-    		'wordcount.apps.WordcountConfig',
+    	'wordcount.apps.WordcountConfig',
     ]
 
 자, 여기서 잠깐 Template가 뭐였는지 한번 복습하고 갑시다. Template는 Django가 사용하는 MTV 패턴에서 T에 해당하는 Template를 말합니다. 더 통상적으로 사용되는 MVC 패턴에서의 V를 뜻하는 View, 즉 사용자에게 보여주는 사이트 화면을 말하죠. 자 그럼 이 사실을 잊지 말고 Template를 한번 만들어 봅시다. 
@@ -147,10 +147,10 @@ wordcount >> [views.py](http://views.py) 파일을 열어주세요.
 라는 내용이 보이면 잘 찾으신겁니다. 이 뷰 파일 내에는 특정 url로 누군가 접속했을 때, 그 접속을 어떻게 처리할 것인가에 대한 내용을 적는 곳입니다. 앞서 말한 것 처럼 home.html과 about.html은 그냥 단순하게 그 사이트에 접속하면 되는 것이기 때문에, 아래와 같이 코드를 작성해주시면 됩니다. 
 
     def home(request): 
-    		return render(request, 'home.html')
+    	return render(request, 'home.html')
     
     def about(request):
-    		return render(request, 'about.html')
+    	return render(request, 'about.html')
 
 ---
 
@@ -172,8 +172,8 @@ firstproject >> [urls.py](http://urls.py) 파일을 열어주세요.
     urlpatterns = [
         url(r'^admin/', admin.site.urls),
     #추가된 내용
-    		path('', wordcount.views.home, name="home"),
-    		path('about/', wordcount.views.about, name="about"),
+    	path('', wordcount.views.home, name="home"),
+    	path('about/', wordcount.views.about, name="about"),
     #여기까지
     ]
 
@@ -182,8 +182,8 @@ URL 패턴은 아래와 같이 사용됩니다. 원래 django는 url()의 형식
 path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니다.
 
     path('기본 url 뒤에 붙는 상세 주소', 
-    		 '그 주소로 접속하면 연결되는 view가 어디인지', 
-    		 '이 url을 호출할 때 사용할 이름이 무엇인지'),
+    	 '그 주소로 접속하면 연결되는 view가 어디인지', 
+    	 '이 url을 호출할 때 사용할 이름이 무엇인지'),
 
 예를 들어, 
 
@@ -208,9 +208,9 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     <a href=""> ABOUT </a>
     
     <form action="">
-    		<textarea cols="40" rows="10" name="fulltext"></textarea>
-    		<br>
-    		<input type="submit" value="Count!">
+    	<textarea cols="40" rows="10" name="fulltext"></textarea>
+    	<br>
+    	<input type="submit" value="Count!">
     </form>
     
 
@@ -244,12 +244,12 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
 
     #views.py
     def result(request):
-    		return render(request, 'wordcount/result.html')
+    	return render(request, 'wordcount/result.html')
     
     # urls.py
     urlpatterns = [
     ...
-    		path('result/', wordcount.views.result, name="result"),
+    	path('result/', wordcount.views.result, name="result"),
     ]
 
 그리고 home.html에 접속해서 "Count!" 기능을 누르면 "count" 기능이 실행되게 설정을 해줘야 합니다. 
@@ -257,9 +257,9 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     <a href="{% url 'about' %}"> ABOUT </a>
     
     <form action=" {% url 'result' %}">
-    		<textarea cols="40" rows="10" name="fulltext"></textarea>
-    		<br>
-    		<input type="submit" value="Count!">
+    	<textarea cols="40" rows="10" name="fulltext"></textarea>
+    	<br>
+    	<input type="submit" value="Count!">
     </form>
     
 
@@ -269,8 +269,8 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
 
     #views.py
     def result(request):
-    		input_text = request.GET['fulltext']
-    		return render(request, 'result.html', {'fulltext': input_text})
+    	input_text = request.GET['fulltext']
+    	    return render(request, 'result.html', {'fulltext': input_text})
 
     input_text = request.GET['fulltext']
 
@@ -301,11 +301,11 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     #views.py
     
     def result(request):
-    		input_text = request.GET['fulltext']
+    	input_text = request.GET['fulltext']
     
-    		word_list = input_text.split() # input_text 변수 속에 있는 글을 띄어쓰기 기준으로 쪼개는 기능
+    	word_list = input_text.split() # input_text 변수 속에 있는 글을 띄어쓰기 기준으로 쪼개는 기능
     
-    		return render(request, 'result.html', {'fulltext': input_text, 'total': len(word_list)})
+    	return render(request, 'result.html', {'fulltext': input_text, 'total': len(word_list)})
     		#total 이라는 변수에 word_list의 길이를 넣을 것이다. 
 
 이제 result 페이지에 이 값을 보여주면 되겠죠?
@@ -323,19 +323,19 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     
     def result(request):
     
-    		input_text = request.GET['fulltext']
+    	input_text = request.GET['fulltext']
     
-    		word_list = input_text.split()
+    	word_list = input_text.split()
     
-    		word_dictionary = {}
+    	word_dictionary = {}
     
-    		for word in word_list:
-    				if word in word_dictionary:
-    				word_dicrtionary[word] += 1
-    				else:
-    				word_dictionary[word] = 1
+    	for word in word_list:
+            if word in word_dictionary:
+            word_dicrtionary[word] += 1
+            else:
+            word_dictionary[word] = 1
     
-    		return render(request, 'result.html', {'inputtext': input_text, 'total': len(word_list), 'dictionary': word_dictionary.items()})
+        return render(request, 'result.html', {'inputtext': input_text, 'total': len(word_list), 'dictionary': word_dictionary.items()})
     		
 
 코드를 차근차근 설명하자면,
@@ -345,10 +345,10 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
 먼저 word_dictionary 라는 이름을 가진 딕셔너리를 하나 만들어주라는 코디 입니다.
 
     for word in word_list:
-    				if word in word_dictionary:
-    					word_dictionary[word] += 1
-    				else:
-    					word_dictionary[word] = 1
+        if word in word_dictionary:
+            word_dictionary[word] += 1
+        else:
+            word_dictionary[word] = 1
 
 그 다음 "word_list를 word라는 이름으로 받아오고, 그 리스트에 단어가 이미 딕셔너리 key 값으로 있다면, value에 1을 더하고 / 없다면 해당 이름으로 key 값을 만들고 그 value는 1로 해라" 라는 의미의 코드입니다.
 
