@@ -49,7 +49,7 @@ Wordcounter 프로젝트는 말 그래도 단어를 세어주는 사이트를 �
 가장 먼저 Django 프로젝트를 만들어줘야 합니다.
 
 → **가상 환경에 접속하는게 항상 먼저 이루어져야 합니다.** 
-
+    {% highlight html %}
     #myvenv라는 이름을 가진 가상환경을 현재 디렉토리에 생성하기
     $ python3 -m venv myvenv
     
@@ -61,14 +61,14 @@ Wordcounter 프로젝트는 말 그래도 단어를 세어주는 사이트를 �
     
     #아래와같이 나오기 시작하면 가상환경 접속 성공!
     (myvenv)$ 
-
+    {% endhighlight %}
 **→ 프로젝트 만들기**
-
+    {% highlight html %}
     #Firstproject라는 이름을 가진 장고 프로젝트를 생성
     $ django-admin startproject Firstproject
-
+    {% endhighlight %}
 **→ 프로젝트 내에 앱 만들기** 
-
+    {% highlight html %}
     #먼저 Firstproject 디렉토리로 이동해야합니다
     $ cd Firstprject 
     
@@ -76,7 +76,7 @@ Wordcounter 프로젝트는 말 그래도 단어를 세어주는 사이트를 �
     $ pip install django
     #그 후 앱을 생성합니다.
     $ python manage.py startapp wordcount
-
+    {% endhighlight %}
 **아래와 같이 나온다면 성공!**
 
 ![](../../images/_2019-03-18__11-26618f3e-8ec7-49e8-9db7-f1b9c92cc863.27.40.png)
@@ -204,7 +204,7 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
 앞서 간략하게 이름만 적어 놓았던 ".html" 파일들을 이제 제대로 한번 만들어 볼 시간입니다. 
 
 먼저 home.html 페이지에는 about으로 연결되는 링크와 텍스트의 길이를 확인할 입력창이 필요합니다. 코드는 아래와 같습니다. 
-
+{% highlight html %}
     <a href=""> ABOUT </a>
     
     <form action="">
@@ -212,25 +212,26 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     		<br>
     		<input type="submit" value="Count!">
     </form>
-    
+{% endhighlight %}
 
 ![](../../images/_2019-03-20__2-3d71e459-aeb7-4b68-ae1e-d50f40766959.13.44.png)
 
 이렇게 뜬다면 성공! 아직은 어떠한 기능도 작동하지 않습니다. 
 
 이제 ABOUT을 누르면 about.html로 넘어가게 기능을 만들어 보겠습니다. 매우 쉽습니다.
-
+{% highlight html %}
     <a href="{% url 'about' %}">ABOUT</a>
-
+{% endhighlight %}
 이라고 입력해주면 됩니다. 
 
 사실,
-
+{% highlight html %}
     <a href="/about">ABOUT</a>
-
+{% endhighlight %}
 이라고 입력 해줘도 똑같이 작동합니다. 이게 우리가 공부 했던 더 익숙한 html 방식 일 것입니다. 그러나 웹 페이지 개발을 할 때 더 효율적인 방법은 첫번째 방법입니다. 
 
-{% %} 표시는 그 안에서는 django 문법을 불러 오겠다는 뜻입니다. 즉 url 중에서 이름이 'about' 이라는 주소를 불러 오겠다는 뜻이죠. 아까 [url.py](http://url.py) 파일에서 name="" 설정 해줬을 때의 그 값을 말합니다. 
+{%raw%}
+{% %} {%endraw%} 표시는 그 안에서는 django 문법을 불러 오겠다는 뜻입니다. 즉 url 중에서 이름이 'about' 이라는 주소를 불러 오겠다는 뜻이죠. 아까 [url.py](http://url.py) 파일에서 name="" 설정 해줬을 때의 그 값을 말합니다. 
 
 즉 코딩 도중에 상세 주소가 바뀌더라도, 그 이름을 찾아서 가기 때문에 html 파일을 하나하나 수정해 줄 필요가 없다는 얘기입니다. 
 
@@ -241,7 +242,7 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
 가장 먼저 view에서 입력된 글을 처리하는 기능을 만들어줘야 합니다. 
 
 먼저 result라는 이름의 기능을 [views.py](http://views.py) 와 [urls.py](http://urls.py) 파일에 추가해줍시다. 
-
+{% highlight html %}
     #views.py
     def result(request):
     		return render(request, 'wordcount/result.html')
@@ -251,9 +252,9 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     ...
     		path('result/', wordcount.views.result, name="result"),
     ]
-
+{% endhighlight %}
 그리고 home.html에 접속해서 "Count!" 기능을 누르면 "count" 기능이 실행되게 설정을 해줘야 합니다. 
-
+{% highlight html %}
     <a href="{% url 'about' %}"> ABOUT </a>
     
     <form action=" {% url 'result' %}">
@@ -261,27 +262,27 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     		<br>
     		<input type="submit" value="Count!">
     </form>
-    
+{% endhighlight %}
 
 이렇게 바꿔주면 됩니다. 그러나 이렇게만 해서는 기능이 작동되지 않습니다. 앞서 말했던 것 처럼 result 페이지는 단순히 어떠한 페이지를 보여주는 home, about과는 다르게 그때그때 입력된 값에 따라 다른 결과를 보여줘야 합니다. 
 
 그래서 Count! 버튼을 누르면 form 태그 안에서 작성된 textarea의 값을 함께 가지고 result.html로 넘어갈 수 있게끔 코드를 추가해줘야 합니다. 
-
+{% highlight html %}
     #views.py
     def result(request):
     		input_text = request.GET['fulltext']
     		return render(request, 'result.html', {'fulltext': input_text})
 
     input_text = request.GET['fulltext']
-
+{% endhighlight %}
 위 코드는 form 태그가 보내는 "fulltext"라는 이름을 가진 값을 input_text라는 이름을 가진 변수에 넣겠다는 뜻 입니다. 
-
+{% highlight html %}
     return render(request, 'wordcount/result.html', {'inputtext': input_text})
-
+{% endhighlight %}
 가장 뒤에 추가된 부분은 result.html에서 inputtext라는 이름을 통해 input_text에 들어있는 변수를 불러 오겠다는 것입니다. 
 
 이제 그 결과를 result.html 페이지에 띄울 차례 입니다. 
-
+{% highlight html %}
     <h1> Result </h1>
     
     <h3> 당신이 입력한 텍스트는 <!--총 단어수 --> 단어로 구성되어 있습니다. </h3>
@@ -291,7 +292,7 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     <br>
     <h3> 단어 카운트 <h3>
     <!-- '단어' : '단어 나온 횟수' -->
-
+{% endhighlight %}
 이 때 {{ }} 는 {% %}와 달리 django를 통해 넘겨받은 데이터를 출력할 때 사용하는 코드입니다. 
 
 ### 05-3. Count 함수 기능 추가하기
@@ -299,7 +300,7 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
 가장 먼저 총 단어 수를 보여주는 기능을 추가해 보겠습니다. 
 
     #views.py
-    
+{% highlight html %}
     def result(request):
     		input_text = request.GET['fulltext']
     
@@ -307,18 +308,18 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     
     		return render(request, 'result.html', {'fulltext': input_text, 'total': len(word_list)})
     		#total 이라는 변수에 word_list의 길이를 넣을 것이다. 
-
+{% endhighlight %}
 이제 result 페이지에 이 값을 보여주면 되겠죠?
-
+{% highlight html %}
     <!-- result.html --> 
     
     <h1> Result </h1>
     
     <h3> 당신이 입력한 텍스트는 {{total}} 단어로 구성되어 있습니다. </h3>
     ...
-
+{% endhighlight %}
 이제 각 단어별로 몇번 반복 되었는지 세는 기능을 만들어 보겠습니다. 
-
+{% highlight html %}
     #views.py
     
     def result(request):
@@ -337,27 +338,27 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     
     		return render(request, 'result.html', {'inputtext': input_text, 'total': len(word_list), 'dictionary': word_dictionary.items()})
     		
-
+{% endhighlight %}
 코드를 차근차근 설명하자면,
-
+{% highlight html %}
     word_dictionary = {}
-
+{% endhighlight %}
 먼저 word_dictionary 라는 이름을 가진 딕셔너리를 하나 만들어주라는 코디 입니다.
-
+{% highlight html %}
     for word in word_list:
     				if word in word_dictionary:
     					word_dictionary[word] += 1
     				else:
     					word_dictionary[word] = 1
-
+{% endhighlight %}
 그 다음 "word_list를 word라는 이름으로 받아오고, 그 리스트에 단어가 이미 딕셔너리 key 값으로 있다면, value에 1을 더하고 / 없다면 해당 이름으로 key 값을 만들고 그 value는 1로 해라" 라는 의미의 코드입니다.
-
+{% highlight html %}
     return render(request, 'result.html', {'fulltext': input_text, 'total': len(word_list), 'dictionary': word_dictionary.items()})
-
+{% endhighlight %}
 그리고 word_dictionary의 모든 값을 dictionary 라는 이름의 변수로 result.html에서 보여주겠다는 뜻입니다. 
 
 이제 [views.py](http://views.py) 작성이 끝났으니 result.html로 가서
-
+{% highlight html %}
     <!-- result.html --> 
     
     <h1> Result </h1>
@@ -372,11 +373,11 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
     {{word}} - {{frequency}}
     <br>
     {%endfor%}
-
+{% endhighlight %}
 라고 입력해줍니다. 
-
+{% highlight html %}
 이를 해석해보면 dictionary의 내용을 하나하나씩 가져와서 key 값은 word라고 부르고, value 값은 frequency라고 부를 것이다. 그리고 순서대로 {{word}} - {{frequency}} 형태로 출력할 것이다, 라는 뜻입니다. 
-
+{% endhighlight %}
 ---
 
 # Parsing
@@ -390,21 +391,21 @@ path()를 작성할 때는 아래와 같은 형식으로 작성해주면 됩니�
 먼저, 가상환경을 켜주시고, 그 안에 [crawl.py](http://crawl.py)라는 이름의 파일을 생성해주시면 됩니다. 
 
 그 후 패키지 두 개를 설치해 주시면 됩니다. 
-
+{% highlight html %}
     pip install requests
     pip install beautifulsoup4
-
+{% endhighlight %}
 그 후 crawl.py에 두 기능을 모두 import 해줍니다. 코드는 아래와 같습니다. 
-
+{% highlight html %}
     from urllib.request import urlopen
     from bs4 import BeautifulSoup
-
+{% endhighlight %}
 그러면 이제 크롤링을 할 준비가 된 것 입니다. 
 
 urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이고, beautifulsoup는 해당 url에서 우리가 가져오고 싶은 정보를 가져오게 해주는 패키지 입니다. 
 
 먼저 간단하게 페이지를 가져오는 기능을 실행해 보겠습니다. 
-
+{% highlight html %}
     from urllib.request import urlopen
     from bs4 import BeautifulSoup
     
@@ -414,17 +415,17 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
     bsObject = BeautifulSoup(html, "html.parser")
     #해당 페이지 정보를 프린트 해보기
     print(bsObject)
-
+{% endhighlight %}
 이후 터미널에 
-
+{% highlight html %}
     $ python3 crawl.py 
-
+{% endhighlight %}
 이라고 입력하면 해당 정보가 불러와 지는 것을 볼 수 있습니다. 
 
 자, 이제 여기서 원하는 정보를 가공하는 방법을 알려드리겠습니다. 
 
 먼저 특정 html 태그를 불러오는 방법입니다. 
-
+{% highlight html %}
     from urllib.request import urlopen
     from bs4 import BeautifulSoup
     
@@ -436,11 +437,11 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
     table = bsObject.find("table")
     
     print(table)
-
+{% endhighlight %}
 이렇게 실행하면 table 안에 있는 정보만 불러 오는 기능을 실행합니다. 
 
 만약 공지사항에서 글 제목을 끌고 오려면 어떻게 해야할까요?
-
+{% highlight html %}
     from urllib.request import urlopen
     from bs4 import BeautifulSoup
     
@@ -458,9 +459,9 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
     		x = title.get_text()
     		print (x)
     		
-
+{% endhighlight %}
 이렇게 하면 쭉 제목만 뽑아 올 수 있습니다. 다만 저희 학교 페이지의 경우 많은 공백이 포함되어 있습니다. 이를 다양한 파이썬 문법을 사용해 해결 할 수 있겠지만, 저의 경우 아래와 같이 하는 것이 가장 깔끔하게 정보를 보여줄 수 있었습니다. 
-
+{% highlight html %}
     from urllib.request import urlopen
     from bs4 import BeautifulSoup
     
@@ -479,9 +480,9 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
         x = x.replace("\t", '')
         x = x.replace("\n", '')
         print(x)
-
+{% endhighlight %}
 업그레이드를 조금 더 해보고자 합니다. 해당 공지글 제목과, 공지글의 url을 같이 가져와 보겠습니다. 
-
+{% highlight html %}
     from urllib.request import urlopen
     from bs4 import BeautifulSoup
     
@@ -505,7 +506,7 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
     		#학교 기본 url에 뽑아온 링크를 합쳐라
     		url = 'http://www.hufs.ac.kr/user/' + link
     		print(url)
-
+{% endhighlight %}
 이렇게 되면 글 제목 밑에 페이지 url이 나오게 됩니다. 클릭해서 해당 제목을 가진 글로 잘 연결되는지 확인 해보시기 바랍니다.
 
 이제 이걸 Django에서 어떻게 사용할 수 있는지 보여드리겠습니다. 전체 웹을 다시 만들기는 조금 번거로우니 아까 만들었던 워드카운트 앱 about 페이지에 임시로 한번 이식했다가 지워봅시다. 
@@ -513,7 +514,7 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
 먼저 views.py를 켜줍니다.
 
 "about" 아래에 위에 코드를 붙여 넣어줍니다.
-
+{% highlight html %}
     #views.py
     
     def about(request):
@@ -531,11 +532,11 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
     			link = title.a.get('href')
     			url = 'http://www.hufs.ac.kr/user/' + link
     	return render(request, 'about.html')
-
+{% endhighlight %}
 앞서 Wordcount 에서 Result를 가져온 것과 비슷한 방식으로 해당 페이지도 구성하고자 합니다. 
 
 먼저 Dictionary를 하나 만들어줍니다. 
-
+{% highlight html %}
     #views.py
     
     def about(request):
@@ -555,9 +556,9 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
     			link = title.a.get('href')
     			url = 'http://www.hufs.ac.kr/user/' + link
     	return render(request, 'about.html')
-
+{% endhighlight %}
 그리고 이제 학교 공지글의 제목을 Key에, 해당 공지글 링크를 Value에 넣어봅시다. 
-
+{% highlight html %}
     #views.py
     
     def about(request):
@@ -578,9 +579,9 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
     			#딕셔너리에 자료 추가
     			notices[x] = url
     	return render(request, 'about.html')
-
+{% endhighlight %}
 마지막으로 해당 딕셔너리를 Templates로 넘겨줍니다.
-
+{% highlight html %}
     #views.py
     
     def about(request):
@@ -601,15 +602,15 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
     			notices[x] = url
     	#Templates로 가져가기
     	return render(request, 'about.html', {'notices': notices.items()})
-
+{% endhighlight %}
 자 이제 about.html 파일로 갑니다. 
-
+{% highlight html %}
     <!-- about.html -->
     <h1> About Wordcount </h1>
     {% for title, link in notices%}
     {{title}} - {{link}}
     {%endfor%}
-
+{% endhighlight %}
 이렇게 입력해 준 후, 서버를 키고 about 페이지에 접속해 봅니다.
 
 ![](../../images/_2019-03-23__3-ba6970c4-e553-40c6-8958-ea68a0fa1186.45.36.png)
@@ -617,23 +618,23 @@ urlopen은 말 그대로 특정 url에 접근 가능하게 해주는 기능이�
 이런식으로 나오면 성공적으로 잘 하신 겁니다.
 
 다만, 이렇게 되면 가독성도 떨어지고 글로 찾아가기도 어려우니 직접 링크를 만들어서 달아보도록 하겠습니다.
-
+{% highlight html %}
     <!-- about.html -->
     <h1> About Wordcount </h1>
     {% for title, link in notices%}
     {{title}} <a href="{{link}}">글 보기</a>
     <br>
     {%endfor%}
-
+{% endhighlight %}
 ![](../../images/_2019-03-23__3-f7c859a7-4805-4e02-955c-c03f55bb5c9d.49.33.png)
-
+{% highlight html %}
     <!-- about.html -->
     <h1> About Wordcount </h1>
     {% for title, link in notices%}
     <a href="{{link}}">{{title}}</a>
     <br>
     {%endfor%}
-
+{% endhighlight %}
 ![](../../images/_2019-03-23__3-39266903-48c0-45e0-a044-02405bf8c91c.49.46.png)
 
 위에 두 방법 중 더 마음에 드시는 방법으로 사용하시면 되겠습니다. 
